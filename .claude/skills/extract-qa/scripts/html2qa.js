@@ -102,7 +102,7 @@ function inline(node) {
   if (SKIP.has(node.tag)) return '';
   if (node.tag === 'br') return '\n';
   if (IMG.has(node.tag)) return image(node);
-  if (node.tag === 'code') {
+  if (node.tag === 'code' || isCodeSpan(node)) {
     // Formatting inside code spans is dropped; markdown can't nest it.
     const code = textOf(node).replace(/\s+/g, ' ');
     return code.trim() ? '`' + code + '`' : code;
@@ -113,6 +113,11 @@ function inline(node) {
     case 'i': case 'em': return wrap(inner, '*');
     default: return inner;
   }
+}
+
+// Some sites (e.g. zerotomastery.io) mark inline code as a <span> with a background color.
+function isCodeSpan(node) {
+  return node.tag === 'span' && /background(-color)?\s*:\s*#/i.test(node.attrs.style || '');
 }
 
 // Keeps surrounding whitespace outside the markers ("**a: **" -> "**a:** ").
@@ -237,12 +242,13 @@ function blocks(node) {
     case 'h4': case 'h5': case 'h6': return [`**${clean(textOf(node))}**`];
     case 'p': {
       if (isBoldOnly(node)) return [`**${clean(textOf(node))}**`];
-      // Images inside a paragraph become their own blocks.
+      // Images and block elements (e.g. a <pre> nested in a <p>) inside a paragraph become their own blocks.
       const out = [];
       let buf = [];
       const flush = () => { const t = clean(buf.join('')); if (t) out.push(t); buf = []; };
       for (const c of node.children) {
         if (IMG.has(c.tag)) { flush(); const i = image(c); if (i) out.push(i); }
+        else if (BLOCK.has(c.tag) || hasBlockChild(c)) { flush(); out.push(...blocks(c)); }
         else buf.push(inline(c));
       }
       flush();
