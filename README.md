@@ -2,13 +2,13 @@
 
 ## Who I am
 
-I am a .NET software developer with over 20 years of experience, having worked in many companies, from small ones to large corporations.
+I am a .NET software developer with over 20 years of experience, having worked at many companies, from small ones to large corporations.
 
 ## Why I created this repo
 
-I am doing my homework to get a new job, and I have just realized that I have been using so many automatisms in my work that I forgot the basics and the reasons why I do things the way I do.
+I am doing my homework to get a new job. After a few interviews, I realized that I rely on so many automatic habits in my work that I have forgotten the basics and the reasons why I do things the way I do.
 
-This repo is here to remind me that **my automatisms are not my knowledge; they are my occupational disease**.
+This repo is here to remind me that **my automatic habits are not knowledge; they are my occupational hazard**.
 
 ## Contents
 
