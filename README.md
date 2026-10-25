@@ -23,4 +23,4 @@ All study materials are in a Q&A format, from basic to advanced topics.
 
 ## Acknowledgements
 
-All the `.md` study documents (except the `CLAUDE.md` files) were created by me using Claude Code and external sources. I would like to thank the authors of those sources. All sources are mentioned in the individual documents.
+All the `.md` study documents were created by me using Claude Code and external sources. I would like to thank the authors of those sources. All sources are mentioned in the individual documents.
