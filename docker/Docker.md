@@ -7,6 +7,7 @@ Source for Part 1: [GeeksforGeeks – Docker Interview Questions and Answers](ht
 
 ## Part 1 – Docker Interview Questions (GeeksforGeeks)
 
+Docker is an open-source platform that simplifies the deployment, scaling, and management of applications using lightweight containers. In this guide, we've put together Docker interview questions and answers that cover everything from container basics to advanced topics like orchestration, Docker Compose, and networking.
 
 ![Docker Interview Questions](https://media.geeksforgeeks.org/wp-content/uploads/20260409110311669468/2.webp)
 
@@ -53,8 +54,8 @@ The following are the key features of using docker:
 **Cons of Docker**
 
 * **Learning Curve:** Initial learning of the containerization concepts will bit new to understand.
-* Additional Resources: Containers use some more resources compared to running applications directly on host.
-* Security Concerns: Misconfigurations may lead to the security risks if not properly managed.
+* **Additional Resources:** Containers use some more resources compared to running applications directly on host.
+* **Security Concerns:** Misconfigurations may lead to the security risks if not properly managed.
 * **Container Orchestration Complexity:** Management of orchestration tools will be complex for larger-scale deployments.
 
 ### 6. Explain the components of docker.
@@ -152,7 +153,7 @@ Both ARG and ENV are Dockerfile instructions used to define variables.
 * Available only during the image build process.
 * Values can be passed using the --build-arg option.
 * Not available inside the running container unless explicitly copied to ENV.
-* Goal: Customize the image build process.
+* **Goal:** Customize the image build process.
 
 **ENV**
 
@@ -172,7 +173,7 @@ Both instructions copy files into an image, but they behave differently:
 * Performs only file-copy operations.
 * Simpler and more predictable.
 * Recommended for most use cases.
-* Goal: Copy local files into the image.
+* **Goal:** Copy local files into the image.
 
 **ADD**
 
@@ -668,7 +669,7 @@ Container security comes up often in more senior interviews. Key practices inclu
 * **Never bake secrets into an image** — anyone who pulls the image can extract them from its layers using `docker history`. Use Docker Secrets or a dedicated secrets manager instead.
 * **Scan images for known vulnerabilities** (with tools like Trivy or Docker Scout) as part of the CI/CD pipeline, before deployment.
 * **Use minimal base images** (Alpine, distroless) to shrink the attack surface.
-* Avoid the **`:latest`** tag in production — pin exact image versions so deployments are predictable and rollbacks are simple.
+* **Avoid the `:latest` tag in production** — pin exact image versions so deployments are predictable and rollbacks are simple.
 
 ### 63. What Is the Purpose of the docker checkpoint Command?
 
@@ -748,6 +749,7 @@ Common approaches combine several layers of monitoring:
 * The `docker` CLI on Windows (or in any WSL distro with "WSL integration" turned on) talks to the engine through a named pipe or socket that Docker Desktop proxies (`npipe:////./pipe/docker_engine` on Windows, `/var/run/docker.sock` inside a distro).
 * All WSL 2 distros share the same VM and kernel, so they share memory and CPU. That is why Docker in WSL 2 starts in seconds, unlike the old Hyper-V "MobyLinuxVM" backend, and allocates memory dynamically.
 * **Senior angle:** you can also skip Docker Desktop and install Docker Engine directly inside a WSL distro (for example, Ubuntu with `systemd=true` in `/etc/wsl.conf`). This avoids Desktop licensing, but you give up the GUI, Windows-side integration, and the automatic `localhost` port proxying that Docker Desktop provides.
+
 ```powershell
 wsl -l -v                     # list distros and their WSL version (docker-desktop should show VERSION 2)
 docker context ls             # see which engine the CLI is targeting
@@ -764,10 +766,12 @@ docker context ls             # see which engine the CLI is targeting
 * **Process isolation:** the container shares the host's Windows kernel, much like Linux containers do. It is fast and light, but the container OS build must **match the host OS build** (for example, a Windows Server 2022 image on a Windows Server 2022 host). This is the default on Windows Server.
 * **Hyper-V isolation:** each container runs inside its own tiny utility VM with its own kernel. It is stronger as a security boundary and allows **version mismatches** (an older image can run on a newer host). The trade-offs are higher startup time and memory use. This is the default on Windows 10/11 client.
 * You select the mode per container:
+
 ```powershell
 docker run --isolation=process  mcr.microsoft.com/windows/servercore:ltsc2022 cmd /c ver
 docker run --isolation=hyperv   mcr.microsoft.com/windows/servercore:ltsc2019 cmd /c ver
 ```
+
 * **Senior angle:** use process isolation in production on matched hosts for density. Use Hyper-V isolation for multi-tenant or untrusted workloads, or when you can't control the host OS version.
 
 ### 75. Which Windows Base Images Exist, and What Should You Know About OS Version Compatibility?
@@ -787,6 +791,7 @@ docker run --isolation=hyperv   mcr.microsoft.com/windows/servercore:ltsc2019 cm
 ### 77. How Do You Containerize a .NET Application Efficiently?
 * Use a **multi-stage build**: compile with the large `mcr.microsoft.com/dotnet/sdk` image, and run on the small `mcr.microsoft.com/dotnet/aspnet` (or `runtime`, or `runtime-deps` for self-contained/AOT) image.
 * Copy the `*.csproj` files and restore **before** copying the rest of the source, so the NuGet restore layer stays cached when only code changes.
+
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
@@ -802,6 +807,7 @@ USER $APP_UID
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "MyApi.dll"]
 ```
+
 * **Chiseled images** (Ubuntu-based, distroless-style) have no shell or package manager and run as non-root by default. They give a much smaller attack surface and image size. Since .NET 8, images default to port **8080** and provide an `app` user (`$APP_UID`).
 * **SDK container publishing** builds an OCI image without a Dockerfile: `dotnet publish -t:PublishContainer -p:ContainerImageTag=1.0` (settings such as `ContainerBaseImage` and `ContainerRepository` go in the `.csproj`).
 * Other options: **Native AOT** plus `runtime-deps` for very small, fast-starting images; `DOTNET_` environment variables / `ASPNETCORE_URLS` for configuration; `DOTNET_gcServer` / `DOTNET_GCHeapHardLimit` so the GC respects container memory limits (.NET reads cgroup limits automatically).
@@ -809,6 +815,7 @@ ENTRYPOINT ["dotnet", "MyApi.dll"]
 ### 78. How Do You Control WSL 2 Resource Usage and Reclaim Disk Space Used by Docker?
 * By default WSL 2 can use up to 50% of host RAM (older builds: 80%) and all logical CPUs. The `vmmem`/`VmmemWSL` process can grow and not release memory right away.
 * You limit it globally in `%UserProfile%\.wslconfig`, then run `wsl --shutdown` to apply:
+
 ```ini
 [wsl2]
 memory=8GB
@@ -819,13 +826,16 @@ swap=4GB
 autoMemoryReclaim=gradual   # return cached memory to Windows
 sparseVhd=true              # new VHDX files shrink automatically
 ```
+
 * Docker data lives in a **VHDX** (for example, `%LOCALAPPDATA%\Docker\wsl\disk\docker_data.vhdx`) that grows but doesn't shrink on its own. To reclaim space:
+
 ```powershell
 docker system prune -a --volumes      # free space inside the VM first
 wsl --shutdown
 Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\disk\docker_data.vhdx" -Mode Full   # requires Hyper-V module
 # or: wsl --manage docker-desktop --set-sparse true   (newer WSL versions)
 ```
+
 * Docker Desktop's **Settings → Resources** also lets you move the disk image location (for example, to a bigger or faster drive) and cap its maximum size.
 
 ### 79. How Does Networking Work Between Windows, WSL 2, and Docker Containers?
@@ -837,10 +847,12 @@ Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\disk\docker_data.vhdx" -Mode Fu
 
 ### 80. What Cross-Platform Problems (Line Endings, Permissions, Paths) Appear When Building Linux Images on Windows?
 * **CRLF line endings:** a shell script checked out on Windows with `core.autocrlf=true` gets `\r\n`, so `ENTRYPOINT ["./entrypoint.sh"]` fails with `exec format error` or `/bin/sh^M: bad interpreter`. Fix it in `.gitattributes`:
+
 ```gitattributes
 *.sh   text eol=lf
 Dockerfile text eol=lf
 ```
+
 * **Executable bit:** NTFS has no Unix permissions, so files copied from Windows may lose `+x`. Set it explicitly: `COPY --chmod=755 entrypoint.sh /` (BuildKit) or `RUN chmod +x`.
 * **Paths:** in Dockerfiles always use forward slashes and Linux paths. In Compose or `docker run` on PowerShell, quote Windows paths and prefer relative paths (`./src:/app`). In Git Bash, `MSYS_NO_PATHCONV=1` stops `/app` from being rewritten to `C:/Program Files/Git/app`.
 * **Case sensitivity:** Linux file systems are case-sensitive, so `appsettings.Production.json` ≠ `appSettings.production.json`. Code that worked on Windows can fail in the container.

@@ -24,7 +24,13 @@ copy the page's wording *and* its structure. Do not summarize, reword or re-bull
    ```
    It prints the number of questions found. Compare it with the question count on the page.
 4. **Review `raw.md`** against the page and fix anything the script got wrong (see the checklist).
-   Remove non-Q&A leftovers such as ads, "Related articles" or course promos.
+   Remove non-Q&A leftovers such as ads, "Related articles" or course promos. The script can't
+   infer two things, so set them yourself:
+   - **Code block language.** Blocks converted from `<blockquote>` have none. Set it from the
+     content (`dockerfile`, `yaml`, `bash`, `csharp`, ...).
+   - **Image alt text.** Source alts are often meaningless (`2`, `420047160`, `image.webp`).
+     Replace them with a short description from the question context
+     (for example, `![Docker vs Virtualization](...)`). Keep the image URL unchanged.
 5. **Assemble the target file**:
    - `# <Topic> Interview Questions` title.
    - `Source: [<page title>](<url>)` line.
@@ -33,6 +39,7 @@ copy the page's wording *and* its structure. Do not summarize, reword or re-bull
    - The converted content goes in Part 1, unchanged except for the review fixes.
 6. **Add extra Q&As** if the topic CLAUDE.md asks for them. Write them in the root CLAUDE.md
    all-bullet format, ordered from basic to advanced, and continue the question numbering.
+   Code blocks inside them still need a blank line before and after the fence.
 7. **Verify** with the checklist below, then report the question counts (source + added).
 
 ## Formatting rules (source-derived content)
@@ -46,7 +53,7 @@ copy the page's wording *and* its structure. Do not summarize, reword or re-bull
 | `<h2>` | `## Section` |
 | `<blockquote>`, `<pre>`, code tabs | Fenced code block |
 | `<table>` | Markdown table |
-| `<img>` | `![alt](src)` using the original image URL |
+| `<img>` | `![descriptive alt](src)` using the original image URL |
 
 - Put exactly one blank line between blocks (paragraphs, sub-headers, lists, images, code,
   tables) so they don't merge into a list, and a single blank line between Q&A sections.
@@ -66,7 +73,9 @@ Q&As written without a source page (step 6) use the all-bullet format from the r
 - [ ] The question count matches the source page, and the numbering has no gaps.
 - [ ] No sub-header has a bullet (`* **Pros of ...**` alone on a line is wrong).
 - [ ] No intro paragraph has a bullet.
-- [ ] Every image from the source is present, in the same position.
+- [ ] Every image from the source article is present, in the same position, with a descriptive
+      alt text. Images in the page header/footer (logos, app-store badges) don't count.
 - [ ] Code blocks are fenced, the language is set where known, and the indentation is intact.
+- [ ] Every code fence, in both source and added Q&As, has a blank line before and after it.
 - [ ] No `****`, empty `**`, stray HTML or entities (`&amp;`) remain.
 - [ ] No runs of two or more blank lines (`grep -c` on `^$` pairs, or a quick scan).

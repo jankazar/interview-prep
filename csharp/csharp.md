@@ -8,11 +8,11 @@ C# is a modern programming language developed by Microsoft and widely used for a
 * Includes modern concepts such as generics, delegates, and asynchronous programming.
 * Provides interview questions for freshers, intermediate-level candidates, and experienced professionals.
 
-![application_csharp.webp](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935750138/application_csharp.webp)
+![Applications of C#](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935750138/application_csharp.webp)
 
-![Features-csharp.webp](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935952695/Features-csharp.webp)
+![Features of C#](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935952695/Features-csharp.webp)
 
-![benefits_of_net_framework_for_developing_business_applications.webp](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935359114/benefits_of_net_framework_for_developing_business_applications.webp)
+![Benefits of .NET Framework for Business Applications](https://media.geeksforgeeks.org/wp-content/uploads/20260721100935359114/benefits_of_net_framework_for_developing_business_applications.webp)
 
 ## C# Interview Questions for Freshers
 
@@ -28,7 +28,7 @@ C# is a modern, object-oriented programming language developed by Microsoft for 
 
 **Example of a basic C# program**
 
-![StructureofCSharpProgram](https://media.geeksforgeeks.org/wp-content/uploads/20260316175235644595/StructureofCSharpProgram.webp)
+![Structure of a C# Program](https://media.geeksforgeeks.org/wp-content/uploads/20260316175235644595/StructureofCSharpProgram.webp)
 
 ### 2. What is .NET Framework (or .NET) and how does it work?
 
@@ -40,7 +40,7 @@ C# is a modern, object-oriented programming language developed by Microsoft for 
 
 **How it works:**
 
-```
+```text
 C# Code -> Compiler -> Intermediate Language (IL) -> .NET Runtime -> Machine Code -> Execution
 ```
 
@@ -86,7 +86,7 @@ var, dynamic, and explicit type declarations are ways to declare variables in C#
 
 **Example:**
 
-```
+```csharp
 var age = 25;          // Compiler infers int
 dynamic value = 25;    // Type resolved at runtime
 string name = "John";  // Explicitly declared as string
@@ -100,13 +100,13 @@ Boxing is the process of converting a value type into a reference type, typicall
 * **Unboxing:** Explicitly converts the boxed object back to its original value type.
 * **Performance:** Frequent boxing and unboxing can increase memory usage and reduce performance.
 
-![Boxing.webp](https://media.geeksforgeeks.org/wp-content/uploads/20260825141646600034/Boxing.webp)
+![Boxing in C#](https://media.geeksforgeeks.org/wp-content/uploads/20260825141646600034/Boxing.webp)
 
-![unBoxing.webp](https://media.geeksforgeeks.org/wp-content/uploads/20260825141701597422/unBoxing.webp)
+![Unboxing in C#](https://media.geeksforgeeks.org/wp-content/uploads/20260825141701597422/unBoxing.webp)
 
 **Example:**
 
-```
+```csharp
 int number = 10;
 object obj = number;  // Boxing
 int value = (int)obj;    // Unboxing
@@ -178,7 +178,7 @@ class Program
 
 **Output**
 
-```
+```text
 10
 20
 20
@@ -230,7 +230,7 @@ class Calculator
 
 **Output**
 
-```
+```text
 30
 60
 ```
@@ -275,7 +275,7 @@ class Program
 
 **Output**
 
-```
+```text
 120
 ```
 
@@ -320,7 +320,7 @@ class Program
 
 **Output**
 
-```
+```text
 10
 20
 30
@@ -376,7 +376,7 @@ class Program
 
 **Output**
 
-```
+```text
 1
 3
 100
@@ -421,7 +421,7 @@ class Program
 
 **Output**
 
-```
+```text
 3
 4
 ```
@@ -464,7 +464,7 @@ class Program
 
 **Output**
 
-```
+```text
 Hello World
 Hello World
 ```
@@ -535,7 +535,7 @@ class Program
 
 **Output**
 
-```
+```text
 Robin
 25
 ```
@@ -596,7 +596,7 @@ class Program
 
 **Output**
 
-```
+```text
 John
 ABC
 ```
@@ -702,7 +702,7 @@ class Program
 
 **Output**
 
-```
+```text
 30
 60
 Dog barks.
@@ -754,7 +754,7 @@ class Program
 
 **Output**
 
-```
+```text
 Emma
 ```
 
@@ -816,7 +816,7 @@ class Program
 
 **Output**
 
-```
+```text
 Animal: Buddy
 Animal makes a sound.
 Dog barks.
@@ -861,7 +861,7 @@ class Program
 
 **Output**
 
-```
+```text
 30
 ```
 
@@ -914,7 +914,7 @@ class Program
 
 **Output**
 
-```
+```text
 Static constructor executed.
 Environment: Production
 Environment: Production
@@ -970,7 +970,7 @@ class Program
 
 **Output**
 
-```
+```text
 Finalizer executed.
 Program completed.
 ```
@@ -1030,7 +1030,7 @@ public class Program
 
 **Output**
 
-```
+```text
 100
 Emma
 ```
@@ -1096,7 +1096,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Emma
 Emma
 ```
@@ -1145,7 +1145,7 @@ public class Program
 
 **Output**
 
-```
+```text
 2
 True
 ```
@@ -1160,8 +1160,8 @@ True
 
 Stack<T> and Queue<T> are generic collection classes used to store and manage elements based on different ordering principles.
 
-* **Stack<T>** : Follows LIFO (Last In, First Out). The last element added is the first one removed.
-* **Queue<T>** : Follows FIFO (First In, First Out). The first element added is the first one removed.
+* **Stack<T>**: Follows LIFO (Last In, First Out). The last element added is the first one removed.
+* **Queue<T>**: Follows FIFO (First In, First Out). The first element added is the first one removed.
 * Stack<T> uses Push() to add and Pop() to remove elements.
 * Queue<T> uses Enqueue() to add and Dequeue() to remove elements.
 * Both provide Peek() to view the next element without removing it.
@@ -1195,7 +1195,7 @@ public class Program
 
 **Output**
 
-```
+```text
 30
 10
 ```
@@ -1240,7 +1240,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Cannot divide by zero.
 Execution completed.
 ```
@@ -1293,7 +1293,7 @@ public class Program
 
 **Output**
 
-```
+```text
 5
 Cleanup completed.
 ```
@@ -1353,7 +1353,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Age must be 18 or above.
 ```
 
@@ -1376,7 +1376,7 @@ LINQ (Language Integrated Query) is feature that provides a consistent way to qu
 * Provides compile-time type checking and IntelliSense support.
 * Commonly used with collections such as List<T>, arrays, and other IEnumerable<T> sources.
 
-![why_use_linq_](https://media.geeksforgeeks.org/wp-content/uploads/20250913105904070347/why_use_linq_.webp)
+![Why Use LINQ](https://media.geeksforgeeks.org/wp-content/uploads/20250913105904070347/why_use_linq_.webp)
 
 **Example:** The example below uses LINQ to find even numbers from a list.
 
@@ -1403,7 +1403,7 @@ public class Program
 
 **Output**
 
-```
+```text
 2
 4
 6
@@ -1468,7 +1468,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Query Syntax:
 2
 4
@@ -1540,7 +1540,7 @@ public class Program
 
 **Output**
 
-```
+```text
 4
 ```
 
@@ -1586,7 +1586,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Emma
 QA
 ```
@@ -1631,7 +1631,7 @@ public class Program
 
 **Output**
 
-```
+```text
 File written successfully.
 ```
 
@@ -1679,7 +1679,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Hello from delegate!
 ```
 
@@ -1735,7 +1735,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Notification received.
 ```
 
@@ -1789,7 +1789,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Message One
 Message Two
 ```
@@ -1837,7 +1837,7 @@ public class Program
 
 **Output**
 
-```
+```text
 2
 4
 6
@@ -1884,7 +1884,7 @@ public class Program
 
 **Output**
 
-```
+```text
 25
 Hello, C#
 True
@@ -1970,18 +1970,18 @@ public class Program
 
 **Output**
 
-```
+```text
 Value is a string.
 Hello
 ```
 
 **Explanation:**
 
-* `value is string` checks whether `value` is compatible with `string` .
-* `value as string` attempts to convert `value` to `string` .
+* `value is string` checks whether `value` is compatible with `string`.
+* `value as string` attempts to convert `value` to `string`.
 * Since `value` contains a string, the conversion succeeds.
 * If the `as` conversion fails, it returns `null` instead of throwing an exception.
-* Use `is` when you need to **check a type** , and `as` when you want to **attempt a safe reference-type conversion** .
+* Use `is` when you need to **check a type**, and `as` when you want to **attempt a safe reference-type conversion**.
 
 ### 55. What is the difference between == and .Equals()?
 
@@ -2030,7 +2030,7 @@ public class Program
 
 **Output**
 
-```
+```text
 False
 True
 ```
@@ -2077,7 +2077,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Object is eligible for garbage collection.
 ```
 
@@ -2124,7 +2124,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Resource is in use.
 Resource released.
 ```
@@ -2193,7 +2193,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Task 2
 Task 1
 ```
@@ -2248,7 +2248,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Running on Thread
 Running on Task
 ```
@@ -2292,7 +2292,7 @@ public class Program
 
 **Output**
 
-```
+```text
 Data received.
 ```
 
@@ -2335,7 +2335,7 @@ public class Program
 
 **Output**
 
-```
+```text
 10000
 ```
 
@@ -2384,7 +2384,7 @@ public class Program
 
 **Output**
 
-```
+```text
 10000
 ```
 
