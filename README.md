@@ -8,8 +8,6 @@ I am a .NET software developer with over 20 years of experience, having worked a
 
 I am doing my homework to get a new job. After a few interviews, I realized that I rely on so many automatic habits in my work that I have forgotten the basics and the reasons why I do things the way I do.
 
-This repo is here to remind me that **my automatic habits are not knowledge; they are my occupational hazard**.
-
 ## Contents
 
 All study materials are in a Q&A format, from basic to advanced topics.
