@@ -1,0 +1,1 @@
+Create a comprehensive study guide for C# 10.x features, including explanations, examples, and best practices.

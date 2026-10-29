@@ -4,6 +4,7 @@ the specific topic — containing study materials in a question-and-answer forma
 All docs should contain Q&A's from basic to advanced topics. 
 Separate Q&A sections with a single empty line only (no extra empty lines for notes).
 You will find details regarding the required topics in the available subfolders.
+After creating a new .md file, update the @README.md file in the root folder to include a link to the new document.
 
 Format the Q&A sections according to the following example:
 ### 1. What is Docker ?
