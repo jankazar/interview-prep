@@ -26,6 +26,7 @@ Most study materials are in a Q&A format, from basic to advanced topics. Documen
 | C# 11 new features (study guide, not Q&A) | [csharp-news/csharp-11/csharp-11.md](csharp-news/csharp-11/csharp-11.md) | Created by Claude Code from its own knowledge, with C# 10 vs C# 11 comparisons and an interview cheat sheet |
 | C# 12 new features (study guide, not Q&A) | [csharp-news/csharp-12/csharp-12.md](csharp-news/csharp-12/csharp-12.md) | Created by Claude Code from its own knowledge, with C# 11 vs C# 12 comparisons and an interview cheat sheet |
 | C# 13 new features (study guide, not Q&A) | [csharp-news/csharp-13/csharp-13.md](csharp-news/csharp-13/csharp-13.md) | Created by Claude Code from its own knowledge, with C# 12 vs C# 13 comparisons and an interview cheat sheet |
+| C# 14 new features (study guide, not Q&A) | [csharp-news/csharp-14/csharp-14.md](csharp-news/csharp-14/csharp-14.md) | Created by Claude Code from its own knowledge, with C# 13 vs C# 14 comparisons and an interview cheat sheet |
 
 ## Claude Code skills
 
