@@ -21,6 +21,7 @@ Most study materials are in a Q&A format, from basic to advanced topics. Documen
 | Microservices | [microservices/microservices.md](microservices/microservices.md) | [GeeksforGeeks](https://www.geeksforgeeks.org/system-design/top-microservices-interview-questions/), [Medium](https://medium.com/@sudhavuppalapati/30-microservices-interview-questions-that-actually-get-asked-cef69a439503) |
 | Idempotency (tutorial, not Q&A) | [microservices/idempotency.md](microservices/idempotency.md) | [GeeksforGeeks](https://www.geeksforgeeks.org/system-design/role-of-idempotent-apis-in-modern-systems-design/) |
 | C# 8 new features (study guide, not Q&A) | [csharp-news/csharp-8/csharp-8.md](csharp-news/csharp-8/csharp-8.md) | Created by Claude Code from its own knowledge, with C# 7.x vs C# 8 comparisons and an interview cheat sheet |
+| C# 9 new features (study guide, not Q&A) | [csharp-news/csharp-9/csharp-9.md](csharp-news/csharp-9/csharp-9.md) | Created by Claude Code from its own knowledge, with C# 8 vs C# 9 comparisons and an interview cheat sheet |
 
 ## Claude Code skills
 
