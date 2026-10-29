@@ -10,7 +10,7 @@ I am doing my homework to get a new job. After a few interviews, I realized that
 
 ## Contents
 
-All study materials are in a Q&A format, from basic to advanced topics.
+Most study materials are in a Q&A format, from basic to advanced topics. Documents marked as a study guide or tutorial are written as explanations with examples instead.
 
 | Topic | Document | Main source |
 |-------|----------|-------------|
@@ -20,6 +20,16 @@ All study materials are in a Q&A format, from basic to advanced topics.
 | Claude Code | [claude/claude-code.md](claude/claude-code.md) | [SFEIR Institute](https://institute.sfeir.com/en/claude-code/claude-code-resources/interview/) |
 | Microservices | [microservices/microservices.md](microservices/microservices.md) | [GeeksforGeeks](https://www.geeksforgeeks.org/system-design/top-microservices-interview-questions/), [Medium](https://medium.com/@sudhavuppalapati/30-microservices-interview-questions-that-actually-get-asked-cef69a439503) |
 | Idempotency (tutorial, not Q&A) | [microservices/idempotency.md](microservices/idempotency.md) | [GeeksforGeeks](https://www.geeksforgeeks.org/system-design/role-of-idempotent-apis-in-modern-systems-design/) |
+| C# 8 new features (study guide, not Q&A) | [csharp-news/csharp-8/csharp-8.md](csharp-news/csharp-8/csharp-8.md) | Created by Claude Code from its own knowledge, with C# 7.x vs C# 8 comparisons and an interview cheat sheet |
+
+## Claude Code skills
+
+Project skills live in `.claude/skills/`:
+
+| Skill | Purpose |
+|-------|---------|
+| `extract-qa` | Extracts Q&As from a source web page into a topic's study `.md` file, mirroring the source structure. |
+| `csharp-version-guide` | Creates a study guide for the new features of a given C# version in `csharp-news/csharp-<N>/`, e.g. `/csharp-version-guide 9`. |
 
 ## Acknowledgements
 
